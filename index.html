@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- If multi-language site, reconsider usage of html lang declaration here. -->
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -13,10 +13,10 @@
   <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
   <link rel="shortcut icon" href="favicon.ico" />
   <!--font-awesome link for icons-->
-  <link rel="stylesheet" media="screen" href="assets/vendor/font-awesome/css/all.min.css" >
+  <link rel="stylesheet" media="screen" href="assets/vendor/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
-  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+  <link rel="stylesheet" media="screen" href="assets/css/style.css">
 </head>
 
 <body>
@@ -30,12 +30,13 @@
           <span class="bar second">bar</span>
           <span class="bar third">bar</span>
         </div>
-        <h1><a href="#FIXME"><img src="https://dummyimage.com/186x30/285FAB/fcfcfc&text=Euro+Finance" alt="Logo"></a></h1>
-        <form action="#FIXME" class="search-form">
-           <div>
+        <h1><a href="#FIXME"><img src="https://dummyimage.com/186x30/285FAB/fcfcfc&text=Euro+Finance" alt="Logo"></a>
+        </h1>
+        <form action="#FIXME" class="search-form" method="post">
+          <div>
             <input type="search" placeholder="search" class="search">
             <input type="submit" value="Go" class="search-btn">
-           </div>
+          </div>
         </form>
         <nav>
           <ul class="header-nav">
@@ -45,7 +46,8 @@
             <li><a href="#FIXME" title="Training" class="training caps-first color-white">training</a></li>
             <li><a href="#FIXME" title="Awards" class="awards caps-first color-white">awards</a></li>
             <li><a href="#FIXME" title="About us" class="about caps-first color-white">about us</a></li>
-            <li><a href="#FIXME" title="Treasury Network" class="treasury caps-first color-white">treasury network</a></li>
+            <li><a href="#FIXME" title="Treasury Network" class="treasury caps-first color-white">treasury network</a>
+            </li>
             <li><a href="#FIXME" title="Contact us" class="contact caps-first color-white">contact us</a></li>
           </ul>
         </nav>
@@ -61,11 +63,96 @@
           <p class="banner-paragraph">get the latest news on our events, exclusive offers and content</p>
         </div>
       </div>
+      <section class="sign-up">
+        <div class="wrapper">
+          <div class="breadcrumb">
+            <a href="#FIXME" class="breadcrumb-one caps-first">euroFinance</a>
+            <a href="#FIXME" class="breadcrumb-two caps-first-l">newsletter signup</a>
+          </div>
+          <h3 class="caps-first-l">enter your details to subscribe to our newsletter</h3>
+          <form action="#FIXME" class="signup-form" method="post">
+            <div class="form-container">
+              <div class="form-field">
+                <label for="name" class="caps-first">first name</label>
+                <input type="text" id="name" name="name" class="name" required>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="lastName" class="caps-first">last name</label>
+                <input type="text" id="lastName" name="lastName" class="lastName" required>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="position" class="caps-first">position</label>
+                <input type="text" id="position" name="position" class="position" required>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="company" class="caps-first">company</label>
+                <input type="text" id="company" name="company" class="company" required>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="companyType" class="caps-first">company type</label>
+                <select name="companyType" id="companyType" class="companyType" required>
+                  <option value="select">-select-</option>
+                  <option value="private" class="caps-first">private</option>
+                  <option value="cooperative" class="caps-first">cooperative</option>
+                </select>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="country" class="caps-first">country</label>
+                <select name="country" id="country" class="country" required>
+                  <option value="select">-select-</option>
+                  <option value="india" class="caps-first">india</option>
+                  <option value="japan" class="caps-first">japan</option>
+                  <option value="africa" class="caps-first">africa</option>
+                  <option value="russia" class="caps-first">russia</option>
+                </select>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="workemail" class="caps-first">workemail</label>
+                <input type="email" id="workemail" name="workemail" class="workemail" placeholder="monilv@prdxn.com"
+                  required>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <label for="radio">euroFinance is part of The Economist Group. Would you also like to
+                  receive information on subscription offers, Economist events and other products via
+                  email?</label>
+                <div id="radio" class="radio">
+                  <input type="radio" id="yes" name="subscribe" class="subscribe" required>
+                  <label for="yes" class="caps-first">yes</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" id="no" name="subscribe" class="subscribe" required>
+                  <label for="no" class="caps-first">no</label>
+                </div>
+                <span class="error-text"></span>
+              </div>
+              <div class="form-field">
+                <p class="signoff-info">
+                  The Economist Group is a global organisation and operates a strict privacy policy
+                  around the world. You can view our privacy policy at
+                  <a href="#FIXME" title="Privacy policy">
+                    www.economistgroup.com/privacy
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="button">
+              <input type="submit" class="submit-btn" value="submit">
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
     <!--main section end-->
 
     <!--footer section start-->
-    <footer>      
+    <footer>
 
     </footer>
     <!--footer section end-->
@@ -74,4 +161,5 @@
   <!--container end-->
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>
