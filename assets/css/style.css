@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html { overflow-y: scroll; scroll-behavior: smooth;}
 
 /* Align radios and text inputs with their label */
 
@@ -110,7 +110,7 @@ li {
 .caps-first-l::first-letter {text-transform: capitalize;}
 .color-white { color: #fff; }
 a { color: #000; }
-
+.active { display: block; }
 .error { 
   border: 1px solid red;
   box-shadow: 1px 1px 8px 1px #e50b0b;
@@ -140,6 +140,7 @@ header {
 .hamburger {
   display: none;
   flex-direction: column;
+  cursor: pointer;
 }
 
 /* .hamburger.hidden { display: none; } */
@@ -155,13 +156,13 @@ header {
   padding-bottom: 4px;
 }
 
-.hamburger .bar.second.active {
+.active1 {
   opacity: 0;
 }
-.hamburger .bar.first.active {
-  transform: translateY(9px) rotate(45deg);
+.active2 {
+  transform: translateY(1px) translateX(2px) rotate(45deg);
 }
-.hamburger .bar.third.active {
+.active3 {
   transform: translateY(-7px) translateX(-2px) rotate(-45deg);
 }
 
