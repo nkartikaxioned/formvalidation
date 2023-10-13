@@ -504,6 +504,7 @@ ul li a:hover {
 
 /* header start */
 
+nav {display: none;}
 .hamburger { display: flex; }
 .search { display: none; }
 .search-btn { display: none; }
@@ -520,7 +521,7 @@ ul li a:hover {
   border-bottom: 1px solid #90b3e4; 
 }
 
-.banner .banner-container { bottom: 10%; }
+.banner .banner-container { bottom: 36%; }
 .submit-btn { width: 50%; }
 
 /* footer start */
@@ -565,7 +566,7 @@ select { width: 65%; }
 
 /*media query for 540px starts here*/
 @media only screen and (max-width: 540px) {
-
+  .banner .banner-container { bottom: 20%; }
   .footer-container .footer-nav { flex-direction: column; text-align: center; }
   .footer-container .footer-nav li:not(:last-child) { border-right: 0; }
 
