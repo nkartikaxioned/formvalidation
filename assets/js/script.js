@@ -14,6 +14,7 @@ const hamBar1 = document.querySelector('.bar.first'),
   navBar = document.querySelector('nav'),
   mainBody = document.querySelector('main'),
   goBtn = document.querySelector('.search-btn'),
+  link = document.querySelector('.signoff-info a'),
   returnbtn = document.querySelector('.return');
 
 hamburger.addEventListener('click', () => {
@@ -24,6 +25,8 @@ hamburger.addEventListener('click', () => {
 })
 
 returnbtn.addEventListener('click', () => { window.scrollTo({ top: 0 }); })
+
+link.addEventListener('click', () => { link.classList.add('link-click') })
 
 submitButton.addEventListener('click', (e) => { 
   e.preventDefault();

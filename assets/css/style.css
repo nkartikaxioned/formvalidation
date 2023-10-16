@@ -571,7 +571,7 @@ nav {display: none;}
 .search-btn { display: none; }
 
 .header-nav { 
-  min-height: 602px; 
+  min-height: 430px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-evenly;
