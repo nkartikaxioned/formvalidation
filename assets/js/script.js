@@ -178,6 +178,10 @@ function clearForm() {
   workemail.value = '';
   subscribe[0].checked = false;
   subscribe[1].checked = false;
+  subscribe.forEach((sub, index) => {
+    sub.classList.remove('error')
+    return true;
+ })
 }
 
 
