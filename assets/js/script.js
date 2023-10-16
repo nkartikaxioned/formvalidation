@@ -14,16 +14,21 @@ const hamBar1 = document.querySelector('.bar.first'),
   navBar = document.querySelector('nav'),
   mainBody = document.querySelector('main'),
   goBtn = document.querySelector('.search-btn'),
-  returnbtn = document.querySelector('.return');
+  link = document.querySelector('.privacy-link'),
+  returnbtn = document.querySelector('.return'),
+  html = document.querySelector('html');
 
 hamburger.addEventListener('click', () => {
   hamBar1.classList.toggle('active1');
   hamBar2.classList.toggle('active2');
   hamBar3.classList.toggle('active3');
   navBar.classList.toggle('active');
+  html.classList.toggle('html-scroll');
 })
 
 returnbtn.addEventListener('click', () => { window.scrollTo({ top: 0 }); })
+
+link.addEventListener('click', () => { link.classList.add('link-click'); })
 
 submitButton.addEventListener('click', (e) => { 
   e.preventDefault();
@@ -77,7 +82,7 @@ validateEmail() || validateSubscribtion())) {
 
 function validateName() {
   const nameValue = fieldName.value.trim();
-  if (nameValue === '' || nameValue.length < 3 || /^[a-zA-Z ]$/.test(nameValue)) {
+  if (nameValue === '' || nameValue.length < 3 || !isNaN(nameValue)) {
     fieldName.classList.add('error');
     return false;
   } else {
@@ -88,7 +93,7 @@ function validateName() {
 
 function validateLastName() {
   const lastname = fieldSurname.value.trim();
-  if (lastname === '' || lastname.length < 3 || /^[a-zA-Z ]$/.test(lastname)) {
+  if (lastname === '' || lastname.length < 3 || !isNaN(lastname)) {
     fieldSurname.classList.add('error');
     return false;
   } else {
@@ -178,6 +183,9 @@ function clearForm() {
   workemail.value = '';
   subscribe[0].checked = false;
   subscribe[1].checked = false;
+  subscribe.forEach((sub, index) => {
+    sub.classList.remove('error');
+ })
 }
 
 

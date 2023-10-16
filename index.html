@@ -80,8 +80,8 @@
       <section class="sign-up">
         <div class="wrapper">
           <div class="breadcrumb">
-            <a href="#FIXME" class="breadcrumb-one caps-first">euroFinance</a>
-            <a href="#FIXME" class="breadcrumb-two caps-first-l">newsletter signup</a>
+            <a href="#FIXME" class="breadcrumb-one caps-first" title="EuroFinance">euroFinance</a>
+            <a href="#FIXME" class="breadcrumb-two caps-first-l" title="Newsletter Signup">newsletter signup</a>
           </div>
           <h3 class="caps-first-l">enter your details to subscribe to our newsletter</h3>
           <form action="#FIXME" class="signup-form" target="_self" method="post">
@@ -89,18 +89,22 @@
               <div class="form-field">
                 <label for="name" class="caps-first">first name</label>
                 <input type="text" id="name" name="name" class="name" required>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <label for="lastName" class="caps-first">last name</label>
                 <input type="text" id="lastName" name="lastName" class="lastName" required>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <label for="position" class="caps-first">position</label>
                 <input type="text" id="position" name="position" class="position" required>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <label for="company" class="caps-first">company</label>
                 <input type="text" id="company" name="company" class="company" required>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <label for="companyType" class="caps-first">company type</label>
@@ -109,6 +113,7 @@
                   <option value="private" class="caps-first">private</option>
                   <option value="cooperative" class="caps-first">cooperative</option>
                 </select>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <label for="country" class="caps-first">country</label>
@@ -119,6 +124,7 @@
                   <option value="africa" class="caps-first">africa</option>
                   <option value="russia" class="caps-first">russia</option>
                 </select>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <label for="workemail" class="caps-first">workemail</label>
@@ -138,12 +144,13 @@
                   <input type="radio" id="no" name="subscribe" class="subscribe" value="no" required>
                   <label for="no" class="caps-first">no</label>
                 </div>
+                <span class="error-text"></span>
               </div>
               <div class="form-field">
                 <p class="signoff-info">
                   The Economist Group is a global organisation and operates a strict privacy policy
                   around the world. You can view our privacy policy at
-                  <a href="#FIXME" title="Privacy policy">
+                  <a href="#FIXME" title="Privacy policy" class="privacy-link">
                     www.economistgroup.com/privacy
                   </a>
                 </p>
