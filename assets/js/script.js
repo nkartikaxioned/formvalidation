@@ -24,10 +24,12 @@ hamburger.addEventListener('click', () => {
 
 returnbtn.addEventListener('click', () => { window.scrollTo({ top: 0 }); })
 
-submitButton.addEventListener('click', () => { 
+submitButton.addEventListener('click', (e) => { 
+  e.preventDefault();
   validateForm(); 
   if(validateForm()){
     alert('Form Submitted Successfully.')
+    clearForm();
   }
 })
 
@@ -60,17 +62,11 @@ workemail.addEventListener('blur', () => {
 });
 
 function validateForm() {
-  if(validateName(),
-  validateLastName(),
-  validatePosition(),
-  validateCompany(),
-  validateCompanyType(),
-  validateCountry(),
-  validateEmail(),
-  validateSubscribtion()) {
-  return true
+  if(!(validateName() || validateLastName() || validatePosition() || validateCompany() || validateCompanyType() || validateCountry() ||
+validateEmail() || validateSubscribtion())) {
+  return false
   } else {
-    return false
+    return true
   }
 }
 
@@ -153,9 +149,8 @@ function validateEmail() {
 }
 
 function validateSubscribtion() {
-    console.log(subscribe[0].checked)
-    console.log(subscribe[1].checked)
     if(!subscribe[0].checked || !subscribe[1].checked){
+      console.log('sadasdasd')
       subscribe.forEach((sub, index) => {
          sub.classList.add('error')
          return false;
@@ -168,7 +163,17 @@ function validateSubscribtion() {
     }
 }
 
-
+function clearForm() {
+  fieldName.value = '';
+  fieldSurname.value = '';
+  fieldPosition.value = '';
+  fieldcompany.value = '';
+  companyType.value = ''; 
+  country.value = '';
+  workemail.value = '';
+  subscribe[0].checked = false;
+  subscribe[1].checked = false;
+}
 
 
 
