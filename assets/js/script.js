@@ -13,8 +13,7 @@ const hamBar1 = document.querySelector('.bar.first'),
   submitButton = document.querySelector('.submit-btn'),
   navBar = document.querySelector('nav'),
   mainBody = document.querySelector('main'),
-  returnbtn = document.querySelector('.return'),
-  errorField = document.querySelectorAll('.error-text');
+  returnbtn = document.querySelector('.return');
 
 hamburger.addEventListener('click', () => {
   hamBar1.classList.toggle('active1');
@@ -25,7 +24,12 @@ hamburger.addEventListener('click', () => {
 
 returnbtn.addEventListener('click', () => { window.scrollTo({ top: 0 }); })
 
-submitButton.addEventListener('click', () => { validateForm(); })
+submitButton.addEventListener('click', () => { 
+  validateForm(); 
+  if(validateForm()){
+    alert('Form Submitted Successfully.')
+  }
+})
 
 fieldName.addEventListener('blur', () => {
   validateName();
@@ -56,22 +60,28 @@ workemail.addEventListener('blur', () => {
 });
 
 function validateForm() {
-  validateName()
-  validateLastName()
-  validatePosition()
-  validateCompany()
-  validateCompanyType()
-  validateCountry()
-  validateEmail()
-  validateSubscribtion()
+  if(validateName(),
+  validateLastName(),
+  validatePosition(),
+  validateCompany(),
+  validateCompanyType(),
+  validateCountry(),
+  validateEmail(),
+  validateSubscribtion()) {
+  return true
+  } else {
+    return false
+  }
 }
 
 function validateName() {
   const nameValue = fieldName.value.trim();
   if (nameValue === '' || nameValue.length < 3 || /^[a-zA-Z ]$/.test(nameValue)) {
     fieldName.classList.add('error');
+    return false;
   } else {
     fieldName.classList.remove('error');
+    return true;
   }
 }
 
@@ -79,8 +89,10 @@ function validateLastName() {
   const lastname = fieldSurname.value.trim();
   if (lastname === '' || lastname.length < 3 || /^[a-zA-Z ]$/.test(lastname)) {
     fieldSurname.classList.add('error');
+    return false;
   } else {
     fieldSurname.classList.remove('error');
+    return true;
   }
 }
 
@@ -88,8 +100,10 @@ function validatePosition() {
   const position = fieldPosition.value.trim();
   if (position === '' || /^[a-zA-Z ]$/.test(position)) {
     fieldPosition.classList.add('error');
+    return false;
   } else {
     fieldPosition.classList.remove('error');
+    return true;
   }
 }
 
@@ -97,8 +111,10 @@ function validateCompany() {
   const company = fieldcompany.value.trim();
   if (company === '' || company === null) {
     fieldcompany.classList.add('error');
+    return false;
   } else {
     fieldcompany.classList.remove('error');
+    return true;
   }
 }
 
@@ -106,8 +122,10 @@ function validateCompanyType() {
   const companytype = companyType.value;
   if(companytype === 'select') {
     companyType.classList.add('error');
+    return false;
   } else {
     companyType.classList.remove('error');
+    return true;
   }
 }
 
@@ -115,8 +133,10 @@ function validateCountry() {
   const countrytype = country.value;
   if(countrytype === 'select') {
     country.classList.add('error');
+    return false;
   } else {
     country.classList.remove('error');
+    return true;
   }
 }
 
@@ -125,8 +145,10 @@ function validateEmail() {
   const validRegex =  /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if( email === '' || email.match(validRegex) == null ) {
     workemail.classList.add('error');
+    return false;
   } else {
     workemail.classList.remove('error');
+    return true;
   }
 }
 
@@ -136,10 +158,12 @@ function validateSubscribtion() {
     if(!subscribe[0].checked || !subscribe[1].checked){
       subscribe.forEach((sub, index) => {
          sub.classList.add('error')
+         return false;
       })
     } else {
       subscribe.forEach((sub, index) => {
         sub.classList.remove('error')
+        return true;
      })
     }
 }
