@@ -13,6 +13,7 @@ const hamBar1 = document.querySelector('.bar.first'),
   submitButton = document.querySelector('.submit-btn'),
   navBar = document.querySelector('nav'),
   mainBody = document.querySelector('main'),
+  goBtn = document.querySelector('.search-btn'),
   returnbtn = document.querySelector('.return');
 
 hamburger.addEventListener('click', () => {
@@ -31,6 +32,10 @@ submitButton.addEventListener('click', (e) => {
     alert('Form Submitted Successfully.')
     clearForm();
   }
+})
+
+goBtn.addEventListener('click', (event) => {
+  event.preventDefault();
 })
 
 fieldName.addEventListener('blur', () => {
