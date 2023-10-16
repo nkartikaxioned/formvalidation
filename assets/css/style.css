@@ -126,7 +126,11 @@ a { color: #000; }
 }
 
 .error-text { color: #e50b0b; }
-.link-click { color: #959494; }
+
+.privacy-link.link-click { 
+  border-bottom: 1px solid #959494;
+  color: #959494; 
+}
 
 /* common class style */
 
@@ -571,7 +575,7 @@ nav {display: none;}
 .search-btn { display: none; }
 
 .header-nav { 
-  min-height: 430px; 
+  min-height: 440px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-evenly;
