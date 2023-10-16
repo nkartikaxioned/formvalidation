@@ -16,8 +16,9 @@ const hamBar1 = document.querySelector('.bar.first'),
   goBtn = document.querySelector('.search-btn'),
   link = document.querySelector('.privacy-link'),
   returnbtn = document.querySelector('.return'),
+  radio = document.querySelectorAll('.radio'),
   errorTextContainer = document.querySelectorAll('.error-text'),
-  html = document.querySelector('html'), errorMsg = 'Enter Valid Input',
+  html = document.querySelector('html'), errorMsg = 'Input field cannot be empty',
   noMsg = '';;
 
 hamburger.addEventListener('click', () => {
@@ -73,9 +74,14 @@ workemail.addEventListener('blur', () => {
   validateEmail()
 });
 
+// radio[0].addEventListener('focus', () => { validateSubscribtion() })
+
 function validateForm() {
-  if(!(validateName() || validateLastName() || validatePosition() || validateCompany() || validateCompanyType() || validateCountry() ||
-validateEmail() || validateSubscribtion())) {
+  console.log(validateName() , validateLastName() , validatePosition() , validateCompany() , validateCompanyType() , validateCountry() ,
+  validateEmail() , validateSubscribtion());
+  if(!validateName() || !validateLastName() || !validatePosition() || !validateCompany() || !validateCompanyType() || !validateCountry() ||
+!validateEmail() || !validateSubscribtion()) {
+  
   return false
   } else {
     return true
@@ -86,7 +92,10 @@ function validateName() {
   const nameValue = fieldName.value.trim();
   if (nameValue === '' || nameValue.length < 3 || !isNaN(nameValue)) {
     fieldName.classList.add('error');
-    errorTextContainer[0].innerText = errorMsg;
+    if(nameValue.length < 3) {  errorTextContainer[0].innerText = "enter valid input"; }
+    if(nameValue == '' || nameValue == null){ 
+      errorTextContainer[0].innerText = errorMsg;
+    } else if(!isNaN(nameValue)) {errorTextContainer[0].innerText = 'Name Cannot contain Number';}
     return false;
   } else {
     fieldName.classList.remove('error');
@@ -99,7 +108,12 @@ function validateLastName() {
   const lastname = fieldSurname.value.trim();
   if (lastname === '' || lastname.length < 3 || !isNaN(lastname)) {
     fieldSurname.classList.add('error');
+    if(lastname.length < 3) {  errorTextContainer[1].innerText = "enter valid input"; }
+    if(lastname == '' || lastname == null){
     errorTextContainer[1].innerText = errorMsg;
+    } else if(!isNaN(lastname)){
+      errorTextContainer[1].innerText = 'Last Name Cannot contain Number';
+    }
     return false;
   } else {
     fieldSurname.classList.remove('error');
@@ -165,7 +179,8 @@ function validateEmail() {
   const validRegex =  /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if( email === '' || email.match(validRegex) == null ) {
     workemail.classList.add('error');
-    errorTextContainer[6].innerText = errorMsg;
+     if(email == '') { errorTextContainer[6].innerText = 'field cannot be empty' }
+     else if (email.match(validRegex) == null ) {  errorTextContainer[6].innerText = 'enter valid mail id'; }
     return false;
   } else {
     workemail.classList.remove('error');
@@ -175,22 +190,33 @@ function validateEmail() {
 }
 
 function validateSubscribtion() {
-    if(!subscribe[0].checked || !subscribe[1].checked){
-      console.log('sadasdasd')
-      subscribe.forEach((sub, index) => {
-         sub.classList.add('error')
-         errorTextContainer[7].innerText = errorMsg;
-         return false;
-      })
-    } else {
-      subscribe.forEach((sub, index) => {
-        sub.classList.remove('error')
-        errorTextContainer[7].innerText = noMsg;
-        return true;
-     })
-    }
-}
+  // if(subscribe[0].checked == false || subscribe[1].checked == false){
+  //   console.log('dfasdfasdf')
+  //     console.log('sub' ,!subscribe[0].checked == false)
+  //     subscribe.forEach((sub, index) => {
+  //        sub.classList.add('error')
+  //       //  errorTextContainer[7].innerText = errorMsg;
+  //        return false;
+  //     })
+  //   } else if(subscribe[0].checked == true|| subscribe[1].checked == true || subscribe[0].value !== undefined || subscribe[1].value !== undefined ) {
+  //     subscribe.forEach((sub, index) => {
+  //       sub.classList.remove('error')
+  //       // errorTextContainer[7].innerText = noMsg;
+  //       return true;
+  //    })
+  //   }
 
+  const checkedRadio = Array.from(subscribe).some(radio => radio.checked);
+
+  if (!checkedRadio) {
+    errorTextContainer[7].innerText ='select a value';
+    return false;
+   
+  } else {
+    errorTextContainer[7].innerText ='';
+    return true;
+  }
+}
 function clearForm() {
   fieldName.value = '';
   fieldSurname.value = '';
